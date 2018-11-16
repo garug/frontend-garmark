@@ -1,0 +1,9 @@
+<form class="wrapper">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Title" [(ngModel)]="deck.name" name="deck.name">
+    </div>
+    <textarea class="form-control" placeholder="Place your deck here..." rows="8"  [(ngModel)]="deck.cardImp" name="deck.cardImp"></textarea>
+    <div class="text-right">
+        <button type="button" class="btn btn-primary mt-2" (click)="save()">Submit</button>
+    </div>
+</form>

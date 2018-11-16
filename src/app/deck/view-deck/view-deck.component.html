@@ -1,0 +1,26 @@
+<h1>{{deck.name}}</h1>
+<div class="row d-flex align-items-center">
+  <app-bar-types [colors]="deck.colors" [iconSize]="30"></app-bar-types>
+  <app-bar-raritys [deck]="deck" class="flex-grow-1"></app-bar-raritys>
+</div>
+<section>
+  <h2>Deck List</h2>
+  <ng-container *ngFor="let type of deck.allTypes()">
+    <article *ngIf="deck.list(type)">
+      <h3>{{type}} ({{deck.countTypes(type)}})</h3>
+      <ul>
+        <li class="d-flex position-relative" *ngFor="let card of deck.list(type); index as i; canISee as a" (mouseenter)="a = true" (mouseleave)="a = false">
+          <ng-container *ngIf="card.name else loading">            
+            <span class="flex-grow-1">{{contCard(card)}}x {{card.name}}</span>
+            <span></span>
+            <app-bar-types *ngIf="type !== 'Land'" [mana]="card.manaCost"></app-bar-types>
+            <img *ngIf="a" src="{{card.imageUrl}}" class="toolCard"/>
+          </ng-container>
+        </li>
+      </ul>
+    </article>
+  </ng-container>
+  <button class="btn btn-block btn-primary">Export to Arena</button>
+</section>
+
+<ng-template #loading>Loading...</ng-template>
