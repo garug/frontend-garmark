@@ -20,6 +20,10 @@ export class Deck {
         return this._id;
     }
 
+    public set id(id: number) {
+        this._id = id;
+    }
+
     public get name() {
         return this._name;
     }
