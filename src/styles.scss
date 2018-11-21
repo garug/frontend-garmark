@@ -11,7 +11,7 @@ body {
   background: url("assets/bg-w.jpg");
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans Condensed', $font-family-monospace;
   font-weight: bolder;
 }
@@ -21,8 +21,25 @@ h1 {
   padding: $spacer;
 }
 
-.wrapper > h1 {
+.crop-card {
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 70%;
+}
+
+.crop-card > img {
+  width: 120%;
+  margin-left: -10%;
+  margin-top: -20%;
+}
+
+.wrapper h1 {
   color: $gray-100;
+}
+
+.wrapper .content {
+  background: $gray-100;
 }
 
 .btn {
